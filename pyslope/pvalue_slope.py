@@ -204,7 +204,7 @@ def calc_pvalue_slope(dates, observations, processing_mask, start_days, end_days
         pvalue_nbr, slope_nbr, intercept_nbr  = \
             reg_fast(cur_period, nbr, len(cur_period))
 
-        pvalue_slope = {'ndvi_pvalue': float,
+        pslope = {'ndvi_pvalue': float,
                         'ndvi_slope': float,
                         'ndvi_intercept': float,
                         'evi_pvalue': float,
@@ -215,17 +215,28 @@ def calc_pvalue_slope(dates, observations, processing_mask, start_days, end_days
                         'nbr_intercept': float
                         }
 
-        pvalue_slope['ndvi_pvalue'] = pvalue_ndvi
-        pvalue_slope['ndvi_slope'] = slope_ndvi
-        pvalue_slope['ndvi_intercept'] = intercept_ndvi
-        pvalue_slope['evi_pvalue'] = pvalue_evi
-        pvalue_slope['evi_slope'] = slope_evi
-        pvalue_slope['evi_intercept'] = intercept_evi
-        pvalue_slope['nbr_pvalue'] = pvalue_nbr
-        pvalue_slope['nbr_slope'] = slope_nbr
-        pvalue_slope['nbr_intercept'] = intercept_nbr
+        pslope['ndvi_pvalue'] = pvalue_ndvi
+        pslope['ndvi_slope'] = slope_ndvi
+        pslope['ndvi_intercept'] = intercept_ndvi
+        pslope['evi_pvalue'] = pvalue_evi
+        pslope['evi_slope'] = slope_evi
+        pslope['evi_intercept'] = intercept_evi
+        pslope['nbr_pvalue'] = pvalue_nbr
+        pslope['nbr_slope'] = slope_nbr
+        pslope['nbr_intercept'] = intercept_nbr
+        pvalue_slope.append(pslope)
 
-    print(pvalue_slope)
+        # print(pvalue_slope[i])
+        print('i=',i)
+        print(pvalue_slope[i]['ndvi_slope'])
+        print(pvalue_slope[i]['ndvi_slope'])
+        print(pvalue_slope[i]['ndvi_intercept'])
+        print(pvalue_slope[i]['evi_pvalue'])
+        print(pvalue_slope[i]['evi_slope'])
+        print(pvalue_slope[i]['evi_intercept'])
+        print(pvalue_slope[i]['nbr_pvalue'])
+        print(pvalue_slope[i]['nbr_slope'])
+        print(pvalue_slope[i]['nbr_intercept'])
 
     """
         result = results_to_pvalue_slope(
