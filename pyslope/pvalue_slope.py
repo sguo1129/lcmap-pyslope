@@ -204,13 +204,29 @@ def calc_pvalue_slope(dates, observations, processing_mask, start_days, end_days
         pvalue_nbr, slope_nbr, intercept_nbr  = \
             reg_fast(cur_period, nbr, len(cur_period))
 
-        print(pvalue_ndvi, slope_ndvi, intercept_ndvi)
-        print(slope_ndvi, slope_ndvi, slope_ndvi)
-        print(intercept_ndvi, intercept_ndvi, intercept_ndvi)
+        pvalue_slope = {'ndvi_pvalue': float,
+                        'ndvi_slope': float,
+                        'ndvi_intercept': float,
+                        'evi_pvalue': float,
+                        'evi_slope': float,
+                        'evi_intercept': float,
+                        'nbr_pvalue': float,
+                        'nbr_slope': float,
+                        'nbr_intercept': float
+                        }
 
-        # pvalue_slope.pvalue=[pvalue_ndvi, pvalue_evi, pvalue_nbr]
-        # pvalue_slope.slope=[slope_ndvi, slope_evi, slope_nbr]
-        # pvalue_slope.intercept=[intercept_ndvi, intercept_evi, intercept_nbr]
+        pvalue_slope['ndvi_pvalue'] = pvalue_ndvi
+        pvalue_slope['ndvi_slope'] = slope_ndvi
+        pvalue_slope['ndvi_intercept'] = intercept_ndvi
+        pvalue_slope['evi_pvalue'] = pvalue_evi
+        pvalue_slope['evi_slope'] = slope_evi
+        pvalue_slope['evi_intercept'] = intercept_evi
+        pvalue_slope['nbr_pvalue'] = pvalue_nbr
+        pvalue_slope['nbr_slope'] = slope_nbr
+        pvalue_slope['nbr_intercept'] = intercept_nbr
+
+    print(pvalue_slope)
+
     """
         result = results_to_pvalue_slope(
                                         pvalue[0]=pvalue_ndvi,
